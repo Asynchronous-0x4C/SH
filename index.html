@@ -1,0 +1,122 @@
+<!doctype html>
+<html lang="jp">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="mobile-web-app-capable" content="yes">
+    <title>Game</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400&display=swap" rel="stylesheet">
+    <script type="module" src="src/main.ts"></script>
+  </head>
+  <body>
+    <main></main>
+    <div id="text-ui">
+      <div id="text-box"></div>
+      <div id="name-box"></div>
+      <div id="controls">
+        <button class="control-button" id="log"><img src="./data/img/file-regular.svg" alt="log"/></button>
+        <button class="control-button" id="auto"><img src="./data/img/play-solid.svg" alt="log"/></button>
+        <button class="control-button" id="skip"></button>
+        <button class="control-button" id="fast"></button>
+      </div>
+    </div>
+  </body>
+  <style>
+    body{
+      margin: 0;
+    }
+    .p5Canvas{
+      display: block;
+    }
+    *{
+      touch-action: none;
+      user-select: none;
+      -moz-user-select: -moz-none;
+      -khtml-user-select: none;
+      -webkit-user-select: none;
+      pointer-events: none;
+      font-family: "Noto Sans JP", serif;
+      font-optical-sizing: auto;
+      font-weight: 300;
+      font-style: normal;
+    }
+    ::-webkit-scrollbar{
+      display: none;
+      width: 0;
+    }
+    #text-ui{
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      p{
+        margin: 0;
+        font-size: 2rem;
+        color: #eee;
+      }
+    }
+    #text-box{
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 80vw;
+      height: 220px;
+      background-color: #0008;
+      padding-block: 40px;
+      padding-inline: 10vw;
+      pointer-events: all;
+      p{
+        text-align: left;
+        font-size: 4vh;
+      }
+    }
+    #name-box{
+      position: absolute;
+      bottom: calc(300px + 1rem);
+      left: 3rem;
+      width: 300px;
+      height: 6vh;
+      border-radius: 5px;
+      background-color: #000a;
+      p{
+        text-align: center;
+        font-size: 4vh;
+      }
+    }
+    #controls{
+      position: absolute;
+      right: 2rem;
+      top: 2rem;
+      display: flex;
+      flex-direction: row;
+      justify-content: center;
+      align-items: center;
+      gap: 2.5rem;
+    }
+    .control-button{
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 50px;
+      height: 50px;
+      padding: 0;
+      border: none;
+      border-radius: 25px;
+      background-color: #000a;
+      pointer-events: all;
+      cursor: pointer;
+      &.active{
+        background-color: #25da;
+      }
+      img{
+        position: relative;
+        width: 25px;
+        height: 25px;
+      }
+    }
+  </style>
+</html>
