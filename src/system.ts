@@ -68,6 +68,7 @@ export class TextManager{
     setTimeout(()=>{this.next()},750);
   };
   animator!:TextAnimator;
+  dialog_content:HTMLDivElement;
 
   constructor(){
     this.text_box=document.getElementById("text-box")as HTMLDivElement;
@@ -89,6 +90,19 @@ export class TextManager{
         this.animator.onend=()=>{};
       }
     });
+    this.dialog_content=document.getElementById("dialog-area")!as HTMLDivElement;
+    const log=document.getElementById("log")!;
+    const dialog=document.getElementById("log-dialog")!as HTMLDialogElement;
+    log.addEventListener("pointerdown",()=>{
+      dialog.showModal();
+      log.classList.add("active");
+    });
+    dialog.addEventListener('pointerdown',(e)=>{
+      if((e.target! as Element).closest('#dialog-area')===null){
+        dialog.close();
+        log.classList.remove("active");
+      }
+    });
   }
 
   loadScript(name:string,callback?:(json:Scripts)=>void,index?:number){
@@ -105,8 +119,10 @@ export class TextManager{
     if(this.script.scripts[index].name!==""){
       this.name_box.style.display="block";
       this.name_box.innerHTML=`<p>${this.script.scripts[index].name}</p>`;
+      this.dialog_content.innerHTML+=`<div class="dialog-content dialog"><h3>${this.script.scripts[index].name}</h3><p>${this.script.scripts[index].text}</p><div>`;
     }else{
       this.name_box.style.display="none";
+      this.dialog_content.innerHTML+=`<div class="dialog-content dialog"><p>${this.script.scripts[index].text}</p><div>`;
     }
     this.animator=new TextAnimator(this.script.scripts[index].text,undefined,(currnet:string)=>{this.text_box.innerHTML=`<p>${currnet}</p>`;},this.autoplay?this.autonext:()=>{});
     this.animator.start();

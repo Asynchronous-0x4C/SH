@@ -23,6 +23,9 @@
         <button class="control-button" id="fast"></button>
       </div>
     </div>
+    <dialog id="log-dialog" class="dialog">
+      <div id="dialog-area" class="dialog"></div>
+    </dialog>
   </body>
   <style>
     body{
@@ -118,6 +121,53 @@
         position: relative;
         width: 25px;
         height: 25px;
+      }
+    }
+    #log-dialog{
+      position: fixed;
+      width: 50vw;
+      height: 80vh;
+      padding: 0;
+      border: none;
+      border-radius: 5px;
+      background-color: #eee;
+      box-shadow: 0 0 10px #0008;
+      pointer-events: all;
+    }
+    #dialog-area{
+      width: calc(50vw - 2rem);
+      height: calc(80vh - 3rem);
+      padding: 1rem;
+      padding-block-start: 2rem;
+      overflow-y: scroll;
+      background-color: #ddd;
+      pointer-events: all;
+      touch-action: pan-y;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 1rem;
+      h3{
+        text-align: left;
+        font-size: 2.5vh;
+        white-space: pre-wrap;
+        word-wrap: break-word;
+        margin-block-start: 0;
+        margin-block-end: 0.5rem;
+      }
+      p{
+        text-align: left;
+        font-size: 2vh;
+        white-space: pre-wrap;
+        word-wrap: break-word;
+        margin-block: 0.5rem;
+      }
+      .dialog-content{
+        background-color: #eee;
+        width: calc(100% - 3rem);
+        padding: 1rem;
+        border-radius: 5px;
+        box-shadow: 0 0 5px #0004;
       }
     }
   </style>
