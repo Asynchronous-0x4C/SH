@@ -9,9 +9,9 @@ window.addEventListener('load',()=>{
 
 window.addEventListener('touchstart',(e)=>{
   p.mousePressed();
-  e.preventDefault();
+  if((e.target!as Element).closest(".dialog")===null)e.preventDefault();
 },{passive:false});
 
 window.addEventListener('touchmove',(e)=>{
-  e.preventDefault();
+  if((e.target!as Element).closest(".dialog")===null)e.preventDefault();
 },{passive:false});

@@ -1,5 +1,18 @@
 {"scripts": [
   {
+    "settings": ["text-ui:hide"],
+    "type": "setting"
+  },
+  {
+    "duration": "0.5",
+    "type": "animation",
+    "animation": "fade-in"
+  },
+  {
+    "settings": ["text-ui:show"],
+    "type": "setting"
+  },
+  {
     "name": "信州くん",
     "text": "はあ..."
   },
@@ -40,8 +53,18 @@
     "text": "お前は何もしてないくせにお金もらいやがって！"
   },
   {
+    "duration": "0.1",
+    "type": "animation",
+    "animation": "fade-out"
+  },
+  {
     "name": "",
     "text": "(祠が壊れる音)"
+  },
+  {
+    "duration": "0.1",
+    "type": "animation",
+    "animation": "fade-in"
   },
   {
     "name": "???",
@@ -221,7 +244,7 @@
   },
   {
     "name": "祠",
-    "text": "なので、使用するとあなたの<font color='#38e'>エーテル</font>を消費します"
+    "text": "なので、使用するとあなたの<font color='#38e'>エーテル<\/font>を消費します"
   },
   {
     "name": "祠",
