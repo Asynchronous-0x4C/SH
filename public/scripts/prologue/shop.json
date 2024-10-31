@@ -1,5 +1,9 @@
 {"scripts": [
   {
+    "settings": ["text-ui:show"],
+    "type": "setting"
+  },
+  {
     "name": "店員",
     "text": "へいらっしゃい!"
   },
@@ -9,10 +13,18 @@
   },
   {
     "name": "店員",
-    "text": "ガム1つ入りやしたぁー!"
+    "text": "ガム1つ入りやしたfu*k!"
   },
   {
     "name": "信州くん",
     "text": "(なんだこいつ)"
+  },
+  {
+    "settings": ["text-ui:hide"],
+    "type": "setting"
+  },
+  {
+    "settings": ["next-state:game"],
+    "type": "setting"
   }
 ]}

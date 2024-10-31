@@ -42,7 +42,7 @@ export class Start extends State{
   constructor(p:p5){
     super(p);
     this.manager=new TextManager();
-    this.manager.loadScript("prologue/main");
+    this.manager.loadScript("chapter1/main");
   }
 
   init(): void {

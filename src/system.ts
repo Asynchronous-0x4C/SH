@@ -1,3 +1,5 @@
+import { setNextState } from "./sketch";
+
 export type Scripts={
   scripts:{
     type:string,
@@ -185,11 +187,13 @@ export class TextManager{
 
   loadScript(name:string,callback?:(json:Scripts)=>void){
     fetch(`./scripts/${name}.json`).then(r=>r.json()).then(r=>{
+      document.getElementById("text-ui")!.style.display="block";
       this.script=r;
+      this.index=0;
+      this.text_box.innerHTML="";
       this.show(0);
       if(callback)callback(this.script);
     }).catch(e=>console.log(e));
-    this.index=0;
   }
 
   show(index:number){
@@ -222,7 +226,10 @@ export class TextManager{
 
   next():boolean{
     if(this.animator.isEnd){
-      if(this.index+1==this.script.scripts.length)return false;
+      if(this.index+1==this.script.scripts.length){
+        document.getElementById("text-ui")!.style.display="none";
+        return false;
+      }
       this.index++;
       this.show(this.index);
     }else{
@@ -239,9 +246,15 @@ export class TextManager{
         case "text-ui":
           const ui=document.getElementById("text-ui")!;
           switch(state){
-            case "hide":ui.style.display="none";break;
+            case "hide":ui.style.display="none";this.text_box.innerHTML="";break;
             case "show":ui.style.display="block";break;
           }
+          break;
+        case "next-state":
+          setNextState(state);
+          break;
+        case "load-next":
+          this.loadScript(state);
           break;
       }
     });

@@ -35,3 +35,9 @@ export const sketch=(p:p5)=>{
     controller.released(p.keyCode);
   }
 }
+
+export function setNextState(s:string){
+  state.set(states.get(s)!);
+  state.state.init();
+  
+}

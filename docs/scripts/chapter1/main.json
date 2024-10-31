@@ -1,0 +1,305 @@
+{"scripts": [
+  {
+    "duration": "1",
+    "type": "animation",
+    "animation": "fade-in"
+  },
+  {
+    "settings": ["text-ui:show"],
+    "type": "setting"
+  },
+  {
+    "name": "???",
+    "text": "今日も平和ですね"
+  },
+  {
+    "name": "???",
+    "text": "...顔蒼さん"
+  },
+  {
+    "name": "顔蒼",
+    "text": "祠を守る必要があるのかってくらい、平和で..."
+  },
+  {
+    "name": "顔蒼祠",
+    "text": "本当にそうですかね？"
+  },
+  {
+    "name": "顔蒼",
+    "text": "え？"
+  },
+  {
+    "name": "顔蒼",
+    "text": "どういうことですか？"
+  },
+  {
+    "name": "顔蒼祠",
+    "text": "このレーダーを見てください"
+  },
+  {
+    "name": "顔蒼",
+    "text": "(また知らない間に変なの作ってる...)"
+  },
+  {
+    "name": "顔蒼祠",
+    "text": "ここに緑の点があります。この点、レーダーの真ん中の青点に近づいてきてます。"
+  },
+  {
+    "name": "顔蒼",
+    "text": "ん？これってつまり..."
+  },
+  {
+    "name": "顔蒼祠",
+    "text": "敵襲です。残念ですが、これで平和は終わりです。"
+  },
+  {
+    "name": "顔蒼",
+    "text": "そんなあ"
+  },
+  {
+    "name": "顔蒼祠",
+    "text": "まさしく諸行無常、といったところでしょうか。"
+  },
+  {
+    "settings": ["text-ui:hide"],
+    "type": "setting"
+  },
+  {
+    "duration": "1",
+    "type": "animation",
+    "animation": "fade-out"
+  },
+  {
+    "settings": ["text-ui:show"],
+    "type": "setting"
+  },
+  {
+    "name": "",
+    "text": "1時間前..."
+  },
+  {
+    "settings": ["text-ui:hide"],
+    "type": "setting"
+  },
+  {
+    "duration": "1",
+    "type": "animation",
+    "animation": "fade-in"
+  },
+  {
+    "settings": ["text-ui:show"],
+    "type": "setting"
+  },
+  {
+    "name": "信州くん",
+    "text": "結局、祠を守るっていうのは攻めてくる敵を倒すだけでいいって事なのか?"
+  },
+  {
+    "name": "祠",
+    "text": "それだけならよかったんですけどね..."
+  },
+  {
+    "name": "信州くん",
+    "text": "つまり?"
+  },
+  {
+    "name": "祠",
+    "text": "これから信州さんには、敵の祠を破壊してもらいます。"
+  },
+  {
+    "name": "信州くん",
+    "text": "は?"
+  },
+  {
+    "name": "祠",
+    "text": "敵の祠を破壊してもらいます。"
+  },
+  {
+    "name": "信州くん",
+    "text": "それ戦争じゃん"
+  },
+  {
+    "name": "祠",
+    "text": "そうですね。"
+  },
+  {
+    "name": "信州くん",
+    "text": "そうはならんやろ"
+  },
+  {
+    "name": "祠",
+    "text": "一応理由を説明しておきましょう。"
+  },
+  {
+    "name": "信州くん",
+    "text": "一応でたまるかこの野郎"
+  },
+  {
+    "name": "祠",
+    "text": "先日、怪しい三人組を倒しましたよね。"
+  },
+  {
+    "name": "祠",
+    "text": "どうやらその三人組が、「顔蒼」というグループに所属していたらしく"
+  },
+  {
+    "name": "祠",
+    "text": "無事、目を付けられてしまいました☆"
+  },
+  {
+    "name": "信州くん",
+    "text": "hun?"
+  },
+  {
+    "name": "祠",
+    "text": "信州さん"
+  },
+  {
+    "name": "信州くん",
+    "text": "ah?"
+  },
+  {
+    "name": "祠",
+    "text": "事実がどうあれ、受け入れれば楽になりますよ。"
+  },
+  {
+    "name": "信州くん",
+    "text": "..."
+  },
+  {
+    "name": "信州くん",
+    "text": "つまり、その「顔蒼」とやらを潰せばいいと"
+  },
+  {
+    "name": "祠",
+    "text": "そういうことです。"
+  },
+  {
+    "name": "信州くん",
+    "text": "そいつらの居場所は?"
+  },
+  {
+    "name": "祠",
+    "text": "私が案内します"
+  },
+  {
+    "name": "信州くん",
+    "text": "よーし、やってやるぜぇぇぇぇ!"
+  },
+  {
+    "settings": ["text-ui:hide"],
+    "type": "setting"
+  },
+  {
+    "duration": "1",
+    "type": "animation",
+    "animation": "fade-out"
+  },
+  {
+    "settings": ["text-ui:show"],
+    "type": "setting"
+  },
+  {
+    "name": "",
+    "text": "現在..."
+  },
+  {
+    "settings": ["text-ui:hide"],
+    "type": "setting"
+  },
+  {
+    "duration": "1",
+    "type": "animation",
+    "animation": "fade-in"
+  },
+  {
+    "settings": ["text-ui:show"],
+    "type": "setting"
+  },
+  {
+    "name": "信州くん",
+    "text": "くそ...こいつら、強い..."
+  },
+  {
+    "name": "顔蒼",
+    "text": "私たちの平和を乱した裁きを受けなさい!"
+  },
+  {
+    "name": "祠",
+    "text": "信州さん、ここは逃げるのが得策です!"
+  },
+  {
+    "name": "信州くん",
+    "text": "仕方ない..."
+  },
+  {
+    "name": "信州くん",
+    "text": "おい顔蒼!"
+  },
+  {
+    "name": "顔蒼",
+    "text": "何だ?"
+  },
+  {
+    "name": "信州くん",
+    "text": "これから俺はどうすると思う?"
+  },
+  {
+    "name": "顔蒼",
+    "text": "降参でもするのか?"
+  },
+  {
+    "name": "信州くん",
+    "text": "逃げるんだよォー!"
+  },
+  {
+    "name": "顔蒼",
+    "text": "おい、待て!"
+  },
+  {
+    "name": "顔蒼祠",
+    "text": "あまり深追いするべきではありませんよ。"
+  },
+  {
+    "name": "顔蒼",
+    "text": "でも..."
+  },
+  {
+    "name": "顔蒼祠",
+    "text": "心配せずとも、奴はまた近いうちに現れます。"
+  },
+  {
+    "name": "顔蒼祠",
+    "text": "それまで、私たちに出来ることをするのみです。"
+  },
+  {
+    "name": "顔蒼",
+    "text": "そうですね..."
+  },
+  {
+    "settings": ["text-ui:hide"],
+    "type": "setting"
+  },
+  {
+    "duration": "1",
+    "type": "animation",
+    "animation": "fade-out"
+  },
+  {
+    "duration": "1",
+    "type": "animation",
+    "animation": "fade-in"
+  },
+  {
+    "settings": ["text-ui:show"],
+    "type": "setting"
+  },
+  {
+    "name": "信州くん",
+    "text": "危なかった..."
+  },
+  {
+    "name": "信州くん",
+    "text": "やっぱり、無計画で本拠地に乗り込むもんじゃないな..."
+  }
+]}
