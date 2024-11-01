@@ -1,5 +1,5 @@
-import p5, { Vector } from "p5";
-import { controller } from "./sketch";
+import p5, { Image, Vector } from "p5";
+import { controller, mousePress, setLayer, setNextState, state } from "./sketch";
 import { TextManager } from "./system";
 
 export class StateManager{
@@ -37,19 +37,101 @@ export class State{
 }
 
 export class Start extends State{
-  manager:TextManager;
 
   constructor(p:p5){
     super(p);
-    this.manager=new TextManager();
-    this.manager.loadScript("chapter1/main");
   }
 
   init(): void {
   }
 
   display(): void {
-    this.p.background(180);
+    this.p.background(230);
+    this.p.fill(30);
+    this.p.textSize(100);
+    this.p.textAlign("center");
+    this.p.text("Project SH",this.p.width*0.5,120);
+  }
+
+  update(): void {
+    if(mousePress){
+      setNextState("story-select");
+    }
+  }
+}
+
+import story_list from "./data/story-list.json";
+
+export class StorySelect extends State{
+  map:Image;
+  mag:number=2000/256;
+  currnet:Vector=new Vector(0,0);
+  target:Vector=new Vector(0,0);
+
+  constructor(p:p5){
+    super(p);
+    this.currnet.set(story_list.list[0].position.x,story_list.list[0].position.y);
+    this.target.set(story_list.list[0].position.x,story_list.list[0].position.y);
+    this.map=p.loadImage("./data/img/map.png");
+    const list=document.getElementById("story-list")!;
+    story_list.list.forEach(s=>{
+      list.innerHTML+=`<div class="story-box scrollable" data-x="${s.position.x}" data-y="${s.position.y}">
+                         <h3 class="scrollable">${s.name}</h3>
+                         <button class="story-start scrollable" data-path="${s.file}"><p>Enter</p></button>
+                       </div>`;
+    });
+    const btn=Array.from(list.getElementsByClassName("story-box")!)as HTMLButtonElement[];
+    btn.forEach(b=>{
+      b.addEventListener('click',()=>{
+        this.target.set(Number(b.dataset.x),Number(b.dataset.y));
+      });
+    });
+    const start=Array.from(list.getElementsByClassName("story-start")!)as HTMLButtonElement[];
+    start.forEach(b=>{
+      b.addEventListener('click',()=>{
+        setNextState("story");
+        (state.state as Story).loadScript(b.dataset.path!);
+      });
+    });
+  }
+
+  init(): void {
+    setLayer("story-select");
+  }
+
+  display(): void {
+    this.p.background(50,100,200);
+    this.p.push();
+    this.p.translate(-this.currnet.x*this.mag+this.p.width*0.3,-this.currnet.y*this.mag+this.p.height*0.5);
+    this.p.noSmooth();
+    this.p.image(this.map,0,0,2048,2048);
+    this.p.smooth();
+    this.p.pop();
+  }
+
+  update(): void {
+    this.currnet.add(this.target.copy().sub(this.currnet).mult(0.2));
+  }
+}
+
+export class Story extends State{
+  manager:TextManager;
+
+  constructor(p:p5){
+    super(p);
+    this.manager=new TextManager();
+  }
+
+  loadScript(path:string){
+    this.manager.loadScript(path);
+  }
+
+  init(): void {
+    setLayer("text");
+  }
+
+  display(): void {
+    this.p.background(230);
   }
 
   update(): void {
