@@ -15,3 +15,7 @@ window.addEventListener('touchstart',(e)=>{
 window.addEventListener('touchmove',(e)=>{
   if((e.target!as Element).closest(".scrollable")===null)e.preventDefault();
 },{passive:false});
+
+window.addEventListener('resize',()=>{
+  p.resizeCanvas(window.innerWidth,window.innerHeight);
+})

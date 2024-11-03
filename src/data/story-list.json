@@ -15,6 +15,22 @@
         "x":107,
         "y":203
       }
+    },
+    {
+      "name":"Chapter2-1",
+      "file":"chapter2/main1",
+      "position":{
+        "x":143,
+        "y":140
+      }
+    },
+    {
+      "name":"Chapter2-2",
+      "file":"chapter2/main2",
+      "position":{
+        "x":170,
+        "y":136
+      }
     }
   ]
 }

@@ -1,5 +1,5 @@
 import p5, { Image, Vector } from "p5";
-import { controller, mousePress, setLayer, setNextState, state } from "./sketch";
+import { canvas, controller, setLayer, setNextState, state } from "./sketch";
 import { TextManager } from "./system";
 
 export class StateManager{
@@ -40,9 +40,14 @@ export class Start extends State{
 
   constructor(p:p5){
     super(p);
+    const btn=document.getElementById("start-button")!;
+    btn.addEventListener("pointerdown",()=>{
+      setNextState("story-select");
+    })
   }
 
   init(): void {
+    setLayer("start");
   }
 
   display(): void {
@@ -54,9 +59,6 @@ export class Start extends State{
   }
 
   update(): void {
-    if(mousePress){
-      setNextState("story-select");
-    }
   }
 }
 
@@ -64,15 +66,16 @@ import story_list from "./data/story-list.json";
 
 export class StorySelect extends State{
   map:Image;
-  mag:number=2000/256;
+  mag:number=2048/256;
   currnet:Vector=new Vector(0,0);
   target:Vector=new Vector(0,0);
 
   constructor(p:p5){
     super(p);
-    this.currnet.set(story_list.list[0].position.x,story_list.list[0].position.y);
-    this.target.set(story_list.list[0].position.x,story_list.list[0].position.y);
-    this.map=p.loadImage("./data/img/map.png");
+    this.currnet.set(story_list.list[0].position.x+0.5,story_list.list[0].position.y+0.5);
+    this.target.set(story_list.list[0].position.x+0.5,story_list.list[0].position.y+0.5);
+    this.map=p.loadImage("./data/img/map.png");//draw in shader
+    (canvas as any).getTexture(this.map).setInterpolation(p.NEAREST,p.NEAREST);
     const list=document.getElementById("story-list")!;
     story_list.list.forEach(s=>{
       list.innerHTML+=`<div class="story-box scrollable" data-x="${s.position.x}" data-y="${s.position.y}">
@@ -83,7 +86,7 @@ export class StorySelect extends State{
     const btn=Array.from(list.getElementsByClassName("story-box")!)as HTMLButtonElement[];
     btn.forEach(b=>{
       b.addEventListener('click',()=>{
-        this.target.set(Number(b.dataset.x),Number(b.dataset.y));
+        this.target.set(Number(b.dataset.x)+0.5,Number(b.dataset.y)+0.5);
       });
     });
     const start=Array.from(list.getElementsByClassName("story-start")!)as HTMLButtonElement[];
@@ -100,17 +103,26 @@ export class StorySelect extends State{
   }
 
   display(): void {
+    const offset=this.calcOffset(this.currnet);
     this.p.background(50,100,200);
     this.p.push();
-    this.p.translate(-this.currnet.x*this.mag+this.p.width*0.3,-this.currnet.y*this.mag+this.p.height*0.5);
-    this.p.noSmooth();
+    this.p.translate(offset.x,offset.y);
     this.p.image(this.map,0,0,2048,2048);
-    this.p.smooth();
+    this.p.stroke(30,200);
+    this.p.fill(160,230,160,200);
+    this.p.strokeWeight(2);
+    const w=2;
+    this.p.quad(this.target.x*this.mag,(this.target.y-0.5)*this.mag-1,(this.target.x+w)*this.mag,(this.target.y-5.5)*this.mag
+                ,this.target.x*this.mag,(this.target.y-4)*this.mag,(this.target.x-w)*this.mag,(this.target.y-5.5)*this.mag);
     this.p.pop();
   }
 
   update(): void {
     this.currnet.add(this.target.copy().sub(this.currnet).mult(0.2));
+  }
+
+  private calcOffset(p:Vector):Vector{
+    return p.copy().mult(-this.mag).add(this.p.width*0.3,this.p.height*0.5);
   }
 }
 
