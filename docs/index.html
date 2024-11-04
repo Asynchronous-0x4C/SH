@@ -9,16 +9,22 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400&display=swap" rel="stylesheet">
-    <script type="module" crossorigin src="./assets/index-CJwZ0YGB.js"></script>
+    <script type="module" crossorigin src="./assets/index-CAznKEqq.js"></script>
   </head>
   <body>
     <main></main>
+    <div id="start-layer" class="layer">
+      <button onpointerdown="document.body.requestFullscreen()" id="fs-button" class="start-buttons">fullscreen</button>
+      <div style="position: fixed;bottom: 2rem;display: flex;flex-direction: row;justify-content: center;width: 100vw;">
+        <button id="start-button" class="start-buttons"><h3 style="margin: 0;font-size: 1.5rem;">Start</h3></button>
+      </div>
+    </div>
     <div id="story-select-layer" class="layer">
       <div id="story-list-bg"></div>
       <div id="story-list" class="scrollable"></div>
     </div>
+    <div id="animation-ui"></div>
     <div id="text-layer" class="layer">
-      <div id="animation-ui"></div>
       <div id="text-ui">
         <div id="text-box"></div>
         <div id="name-box"></div>
@@ -36,11 +42,14 @@
     <div id="option-layer" class="layer"></div>
   </body>
   <style>
-    body{
+    body,html{
       margin: 0;
+      overflow: hidden;
     }
     .p5Canvas{
       display: block;
+      width: 100vw;
+      height: 100dvh;
     }
     *{
       touch-action: none;
@@ -63,6 +72,27 @@
       position: absolute;
       top: 0;
       left: 0;
+    }
+    #fs-button{
+      position: fixed;
+      left: 1rem;
+      top: 1rem;
+      padding: 0.5rem;
+      font-size: 1rem;
+    }
+    #start-button{
+      padding: 0.5rem;
+      padding-inline: 1rem;
+      font-size: 1.5rem;
+    }
+    .start-buttons{
+      background-color: #333;
+      color: #eee;
+      border: none;
+      border-radius: 5px;
+      pointer-events: all;
+      cursor: pointer;
+      box-shadow: 0 0 5px #0004;
     }
     #story-list{
       display: flex;
@@ -131,6 +161,7 @@
       }
     }
     #text-ui{
+      display: none;
       position: absolute;
       top: 0;
       left: 0;
@@ -149,19 +180,19 @@
       width: 80vw;
       height: min(23dvh,220px);
       background-color: #0008;
-      padding-block: 40px;
+      padding-block: min(40px,6dvh);
       padding-inline: 10vw;
       pointer-events: all;
       p{
         text-align: left;
-        font-size: 4dvh;
+        font-size: max(4dvh,1.2rem);
         white-space: pre-wrap;
         word-wrap: break-word;
       }
     }
     #name-box{
       position: absolute;
-      bottom: calc(min(23dvh,220px) + 80px + 1rem);
+      bottom: calc(min(23dvh,220px) + min(40px,6dvh)*2 + 1rem);
       left: 3rem;
       width: fit-content;
       height: 6dvh;

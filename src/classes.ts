@@ -92,8 +92,14 @@ export class StorySelect extends State{
     const start=Array.from(list.getElementsByClassName("story-start")!)as HTMLButtonElement[];
     start.forEach(b=>{
       b.addEventListener('click',()=>{
-        setNextState("story");
-        (state.state as Story).loadScript(b.dataset.path!);
+        const anim=document.getElementById("animation-ui")!;
+        anim.style.transitionDuration="1s";
+        anim.style.backgroundColor="#333";
+        anim.offsetHeight;
+        anim.ontransitionend=()=>{
+          setNextState("story");
+          (state.state as Story).loadScript(b.dataset.path!);
+        }
       });
     });
   }

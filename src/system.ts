@@ -49,7 +49,7 @@ export class AnimationAnimator extends Animator{
     this.animation=animation;
     this.duration=Number(duration);
     this.el=document.getElementById("animation-ui")!as HTMLDivElement;
-    this.el.addEventListener('transitionend',this.transitionend);
+    this.el.ontransitionend=this.transitionend;
     switch(animation){
       case "fade-in":
         this.el.style.backgroundColor="#333";
@@ -57,7 +57,6 @@ export class AnimationAnimator extends Animator{
         this.process=()=>{
           this.el.style.transition=`background-color ${duration}s ease-out`;
           this.el.style.backgroundColor="#3330";
-
         };
         break;
       case "fade-out":
@@ -175,6 +174,7 @@ export class TextManager{
     const dialog=document.getElementById("log-dialog")!as HTMLDialogElement;
     log.addEventListener("pointerdown",()=>{
       dialog.showModal();
+      this.dialog_content.scrollTop=this.dialog_content.scrollHeight;
       log.classList.add("active");
     });
     dialog.addEventListener('pointerdown',(e)=>{
@@ -191,6 +191,7 @@ export class TextManager{
       this.script=r;
       this.index=0;
       this.text_box.innerHTML="";
+      this.name_box.innerHTML="";
       this.show(0);
       if(callback)callback(this.script);
     }).catch(e=>console.log(e));
@@ -252,6 +253,10 @@ export class TextManager{
           break;
         case "next-state":
           setNextState(state);
+          const anim=document.getElementById("animation-ui")!;
+          anim.style.transitionDuration="1s";
+          anim.style.backgroundColor="#3330";
+          anim.offsetHeight;
           break;
         case "load-next":
           this.loadScript(state);
