@@ -1,0 +1,91 @@
+---
+import Game from "../components/Game.astro";
+import Start from "../components/Start.astro";
+import StorySelect from "../components/Story_Select.astro";
+import Text from "../components/Text.astro";
+
+---
+
+<!doctype html>
+<html lang="jp">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="mobile-web-app-capable" content="yes">
+    <title>Game</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400&display=swap" rel="stylesheet">
+    <script>
+      import p5 from "p5";
+      import { sketch } from "../../public/src/sketch";
+      
+      let p;
+
+      p=new p5(sketch);
+      
+      window.addEventListener('touchstart',(e)=>{
+        p.mousePressed();
+        if((e.target! as Element).closest(".scrollable")===null)e.preventDefault();
+      },{passive:false});
+
+      window.addEventListener('touchmove',(e)=>{
+        if((e.target! as Element).closest(".scrollable")===null)e.preventDefault();
+      },{passive:false});
+
+      window.addEventListener('resize',()=>{
+        p.resizeCanvas(window.innerWidth,window.innerHeight);
+      })
+    </script>
+  </head>
+  <body>
+    <main></main>
+    <Start></Start>
+    <StorySelect></StorySelect>
+    <Game></Game>
+    <div id="animation-ui"></div>
+    <Text></Text>
+    <div id="option-layer" class="layer"></div>
+  </body>
+  <style is:global>
+    body,html{
+      margin: 0;
+      overflow: hidden;
+    }
+    .p5Canvas{
+      display: block;
+      width: 100vw;
+      height: 100dvh;
+    }
+    *{
+      touch-action: none;
+      user-select: none;
+      -moz-user-select: -moz-none;
+      -khtml-user-select: none;
+      -webkit-user-select: none;
+      pointer-events: none;
+      font-family: "Noto Sans JP", serif;
+      font-optical-sizing: auto;
+      font-weight: 300;
+      font-style: normal;
+    }
+    ::-webkit-scrollbar{
+      display: none;
+      width: 0;
+    }
+    .layer{
+      display: none;
+      position: absolute;
+      top: 0;
+      left: 0;
+    }
+    #animation-ui{
+      position: fixed;
+      left: 0;
+      top: 0;
+      width: 100vw;
+      height: 100dvh;
+    }
+  </style>
+</html>

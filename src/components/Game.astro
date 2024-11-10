@@ -1,0 +1,34 @@
+---
+
+---
+
+<div id="game-layer" class="layer">
+  <div id="character-list">
+    <button class="character-button">S</button>
+  </div>
+  <div id="sp-gauge"></div>
+</div>
+<style>
+  #character-list{
+    position: fixed;
+    right: 0;
+    bottom: 8dvh;
+    display: flex;
+    flex-direction: row;
+    gap: 1rem;
+    background-color: #3338;
+    padding-inline: 2rem;
+    padding-block: 0.5rem;
+    border-top-left-radius: 10px;
+    border-bottom-left-radius: 10px;
+    box-shadow: 0 0 8px #0006;
+  }
+  .character-button{
+    width: 10dvh;
+    height: 10dvh;
+    background-color: #eee;
+    pointer-events: all;
+    border: none;
+    border-radius: 5px;
+  }
+</style>

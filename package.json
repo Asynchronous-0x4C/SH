@@ -1,23 +1,24 @@
 {
-  "name": "mini-game",
-  "private": true,
-  "version": "0.0.0",
+  "name": "",
   "type": "module",
+  "version": "0.0.1",
   "scripts": {
-    "dev": "vite",
-    "devh": "vite --host",
-    "build": "tsc && vite build",
-    "preview": "vite preview"
-  },
-  "devDependencies": {
-    "typescript": "^5.5.3",
-    "vite": "^5.4.8"
+    "dev": "astro dev",
+    "devh": "astro dev --host",
+    "start": "astro dev",
+    "build": "astro check && astro build",
+    "preview": "astro preview",
+    "astro": "astro"
   },
   "dependencies": {
-    "@types/matter-js": "^0.19.7",
+    "": "file:",
+    "@astrojs/check": "^0.9.4",
+    "@astrojs/ts-plugin": "^1.10.4",
+    "@types/javascript-astar": "^0.0.35",
     "@types/p5": "^1.7.6",
-    "matter-js": "^0.20.0",
-    "mini-game": "file:",
-    "p5": "^1.11.0"
+    "astro": "^4.16.10",
+    "javascript-astar": "^0.4.1",
+    "p5": "^1.11.1",
+    "typescript": "^5.6.3"
   }
 }

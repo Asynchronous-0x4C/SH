@@ -102,7 +102,7 @@ export class TextAnimator extends Animator{
   }
 
   start(){
-    this.id=setInterval(()=>{
+    this.id=window.setInterval(()=>{
       const end=!this.next();
       this.onupdate(this.current);
       if(end){

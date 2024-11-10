@@ -1,0 +1,143 @@
+---
+
+---
+
+<div id="text-layer" class="layer">
+  <div id="text-ui">
+    <div id="text-box"></div>
+    <div id="name-box"></div>
+    <div id="controls">
+      <button class="control-button" id="log"><img src="./data/img/file-regular.svg" alt="log"/></button>
+      <button class="control-button" id="auto"><img src="./data/img/play-solid.svg" alt="log"/></button>
+      <button class="control-button" id="skip"></button>
+      <button class="control-button" id="fast"></button>
+    </div>
+  </div>
+  <dialog id="log-dialog" class="dialog scrollable">
+    <div id="dialog-area" class="dialog scrollable"></div>
+  </dialog>
+</div>
+<style>
+  #text-ui{
+    display: none;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100dvh;
+    p{
+      margin: 0;
+      font-size: 2rem;
+      color: #eee;
+    }
+  }
+  #text-box{
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 80vw;
+    height: min(23dvh,220px);
+    background-color: #0008;
+    padding-block: min(40px,6dvh);
+    padding-inline: 10vw;
+    pointer-events: all;
+    p{
+      text-align: left;
+      font-size: max(4dvh,1.2rem);
+      white-space: pre-wrap;
+      word-wrap: break-word;
+    }
+  }
+  #name-box{
+    position: absolute;
+    bottom: calc(min(23dvh,220px) + min(40px,6dvh)*2 + 1rem);
+    left: 3rem;
+    width: fit-content;
+    height: 6dvh;
+    padding-inline: 2rem;
+    border-radius: 5px;
+    background-color: #000a;
+    p{
+      text-align: center;
+      font-size: 4vh;
+    }
+  }
+  #controls{
+    position: absolute;
+    right: 2rem;
+    top: 2rem;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 2.5rem;
+  }
+  .control-button{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 50px;
+    height: 50px;
+    padding: 0;
+    border: none;
+    border-radius: 25px;
+    background-color: #000a;
+    pointer-events: all;
+    cursor: pointer;
+    &.active{
+      background-color: #25da;
+    }
+    img{
+      position: relative;
+      width: 25px;
+      height: 25px;
+    }
+  }
+  #log-dialog{
+    position: fixed;
+    width: 50vw;
+    height: 80dvh;
+    padding: 0;
+    border: none;
+    border-radius: 5px;
+    background-color: #eee;
+    box-shadow: 0 0 10px #0008;
+    pointer-events: all;
+  }
+  #dialog-area{
+    width: calc(50vw - 2rem);
+    height: calc(80dvh - 3rem);
+    padding: 1rem;
+    padding-block-start: 2rem;
+    overflow-y: scroll;
+    background-color: #ddd;
+    pointer-events: all;
+    touch-action: pan-y;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+    h3{
+      text-align: left;
+      font-size: 2.5vh;
+      white-space: pre-wrap;
+      word-wrap: break-word;
+      margin-block-start: 0;
+      margin-block-end: 0.5rem;
+    }
+    p{
+      text-align: left;
+      font-size: 2dvh;
+      white-space: pre-wrap;
+      word-wrap: break-word;
+      margin-block: 0.5rem;
+    }
+    .dialog-content{
+      background-color: #eee;
+      width: calc(100% - 3rem);
+      padding: 1rem;
+      border-radius: 5px;
+      box-shadow: 0 0 5px #0004;
+    }
+  }
+</style>

@@ -1,4 +1,4 @@
-import p5, { Vector } from "p5";
+import p5 from "p5";
 import { VirtualStick } from "./UI";
 
 type p5touch={x:number,y:number,minX:number,minY:number,id:number};
@@ -12,9 +12,10 @@ export class Controller{
 
   constructor(p:p5){
     this.p=p;
-    const moveStick=new VirtualStick(p);
-    moveStick.setBounds(new Vector(100,100),new Vector(100,100));
-    this.sticks.push(moveStick);
+  }
+
+  addStick(s:VirtualStick){
+    this.sticks.push(s);
   }
 
   update(){

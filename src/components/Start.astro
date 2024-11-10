@@ -1,0 +1,33 @@
+---
+
+---
+
+<div id="start-layer" class="layer">
+  <button onpointerdown="document.body.requestFullscreen()" id="fs-button" class="start-buttons">fullscreen</button>
+  <div style="position: fixed;bottom: 2rem;display: flex;flex-direction: row;justify-content: center;width: 100vw;">
+    <button id="start-button" class="start-buttons"><h3 style="margin: 0;font-size: 1.5rem;">Start</h3></button>
+  </div>
+</div>
+<style>
+  #fs-button{
+    position: fixed;
+    left: 1rem;
+    top: 1rem;
+    padding: 0.5rem;
+    font-size: 1rem;
+  }
+  #start-button{
+    padding: 0.5rem;
+    padding-inline: 1rem;
+    font-size: 1.5rem;
+  }
+  .start-buttons{
+    background-color: #333;
+    color: #eee;
+    border: none;
+    border-radius: 5px;
+    pointer-events: all;
+    cursor: pointer;
+    box-shadow: 0 0 5px #0004;
+  }
+</style>

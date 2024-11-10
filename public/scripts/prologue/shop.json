@@ -24,12 +24,7 @@
     "type": "setting"
   },
   {
-    "duration": "1",
-    "type": "animation",
-    "animation": "fade-out"
-  },
-  {
-    "settings": ["next-state:story-select"],
+    "settings": ["next-state:game"],
     "type": "setting"
   }
 ]}
